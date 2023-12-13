@@ -23,16 +23,33 @@ const layout = ({children}) => {
             setMyDid(did);
    //         await configureProtocol(web5, did);
           }
-          const response = await web5.dwn.records.read({
-            from: did,
-            message: {
-              recordId:localStorage.getItem('recordId')
-            },
-          });
-          console.log(response);
-    
+          if (localStorage.getItem('recordId')) {
+            try {
+              const recordobject=localStorage.getItem('recordId')
+              const recordno=JSON.parse(recordobject)
+              console.log(recordno.recordId);
+              const {record} = await web5.dwn.records.read({
+                from: did,
+                message: {
+                  filter:{
+                    recordId:recordno.recordId,
+                    
+                  }
+                },
+              });
+              if (record) {
+                const data= await record.data.json()
+                setRecords(data)
+                setRecordId(recordno.recordId)
+              }
+ 
+              
+            } catch (error) {
+              console.log(error);
+            }
 
-          if (!response?.record) {
+
+          }else{
             console.log('No records found, creating new records');
             const { record } = await web5.dwn.records.write({
               "data": {
@@ -78,7 +95,7 @@ const layout = ({children}) => {
             }
             const {status}=await record.send(did)
             console.log(status);
-            localStorage.setItem('recordId',record)
+            localStorage.setItem('recordId',JSON.stringify(record))
           }
 
          } catch (error) {
