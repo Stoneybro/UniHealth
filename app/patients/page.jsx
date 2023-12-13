@@ -78,7 +78,6 @@ return(
 
 
         <div className="flex w-full justify-between  px-4">
-
           <div className="flex flex-1 flex-col">
             <div className="">
               <div className="text-[#808080]">Date of birth</div>
