@@ -8,11 +8,26 @@ const Home = () => {
       <div className="flex flex-col shadow-md items-center justify-center max-w-[70%] h-[60%] rounded-md gap-6 py-3 px-16">
         <div className=" text-xl font-semibold text-center">Welcome to UniHealth</div>
         <div className="text-[#808080] text-sm text-center">Select your account type to begin accessing your personalized healthcare experience.</div>
-        <div className="flex flex-col   gap-4 text-white w-full text-sm">
-        <button className='bg-[#3263CF] rounded px-9 py-2'><Link href={'/patients'}>Personal</Link></button>
-        <button className='bg-[#3263CF] rounded px-9 py-2'><Link href={'/professionals'}>Healthcare professional </Link></button>
-        <button className='bg-[#3263CF] rounded px-9 py-2'><Link href={"/facilities"}>Healthcare facilitiy</Link></button>
-        </div>
+        <div className="flex flex-col gap-4 text-white w-full text-sm">
+  <Link href="/patients">
+    <button className='bg-[#3263CF] rounded px-9 py-2 w-full'>
+      Personal
+    </button>
+  </Link>
+
+  <Link href="/professionals">
+    <button className='bg-[#3263CF] rounded px-9 py-2 w-full'>
+      Healthcare Professional
+    </button>
+  </Link>
+
+  <Link href="/facilities">
+    <button className='bg-[#3263CF] rounded px-9 py-2 w-full'>
+      Healthcare Facility
+    </button>
+  </Link>
+</div>
+
       </div>
       <div className="bg-[#F5F5F5] p-4 max-w-[70%] text-xs text-[#404040] rounded-lg ">
       <div className=""><span className='font-semibold '>Personal Account:</span> Sign in if you are an individual seeking personal healthcare services. Manage your health records, appointments, and more.</div>
