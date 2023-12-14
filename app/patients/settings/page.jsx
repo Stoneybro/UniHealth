@@ -40,7 +40,7 @@ const Page = () => {
               },
             },
           });
-          console.log(record);
+        
           const newrecord=await record.data.json()
                   
           const updatedData = {
@@ -49,7 +49,22 @@ const Page = () => {
           };
           console.log(updatedData);
           const response = await record.update({data:updatedData });
-          console.log(response.status);
+          console.log(response.status.detail);
+          if (response.status.code === 202) {
+            // Data has been updated successfully
+            const { record } = await web5.dwn.records.read({
+              message: {
+                filter: {
+                schema:''
+                },
+              },
+            });
+          
+            console.log(record);
+          } else {
+            // Data update failed
+            console.log("Failed to update record");
+          }
 
           
         } catch (error) {

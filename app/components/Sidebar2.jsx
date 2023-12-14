@@ -8,14 +8,9 @@ import Doctor from './Doctor'
 import Link from 'next/link'
 import { useGlobalContext } from './utils/Provider'
 
-const Sidebar = ({records,id,web5,mydid}) => {
+const Sidebar = () => {
 const {setData,data,setId,setWeb5,setDid,nav,setNav}=useGlobalContext()
-  useEffect(()=>{
-    setData(records)
-    setId(id)
-    setWeb5(web5)
-    setDid(mydid)
-  },[records])
+
   return (
     <div className=  {`lg:sticky top-[3rem] lg:top-0 left-0 overflow-hidden absolute z-20  bg-white ${nav?'w-screen h-screen':'lg:w-auto lg:h-screen w-0 h-0'}   lg:flex justify-center pt-8`}>
       <div className="lg:flex flex-col gap-8 hidden">
