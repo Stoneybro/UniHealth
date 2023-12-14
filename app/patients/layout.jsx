@@ -17,7 +17,9 @@ const layout = ({children}) => {
       async function web5Init() {
         const {Web5}=await import("@web5/api")
         try {
-          const { web5, did } = await Web5.connect();
+          const { web5, did } = await Web5.connect(
+            {sync:'2s'}
+          );
           if (web5 && did) {
             setWeb5(web5);
             setMyDid(did);
@@ -44,7 +46,8 @@ const layout = ({children}) => {
                   }
                 },
               });
-             
+             const newrecord= await record.data.json()
+             console.log(newrecord);
               if (record) {
                 const data= await record.data.json()
                 setRecords(data)

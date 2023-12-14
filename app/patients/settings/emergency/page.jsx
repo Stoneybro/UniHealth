@@ -4,7 +4,7 @@ import React from 'react';
 import { useGlobalContext } from '@/app/components/utils/Provider';
 
 const Page = () => {
-  const { web5, did } = useGlobalContext();
+  const { web5, did,setData } = useGlobalContext();
   const [personalInfox, setPersonalInfox] = useState({
     Nok: "",
     Nokphone: "",
@@ -34,9 +34,37 @@ const Page = () => {
             },
           },
         });
-        const {status} = await record.update({emergencyInformation:personalInfox });
+      
+        const newrecord=await record.data.json()
+                
+        const updatedData = {
+          ...newrecord,
+          emergencyInformation:personalInfox,
+        };
+        console.log(updatedData);
+        const response = await record.update({data:updatedData });
+        console.log(response.status.detail);
+        if (response.status.code === 202) {
+          // Data has been updated successfully
+          const { record } = await web5.dwn.records.read({
+            message: {
+              filter: {
+                recordId: recordno.recordId,
+              },
+            },
+          });
+          const data= await record.data.json()
+          
+          console.log(data);
+          setData(data)
+          const {status} =await record.send(did)
+          console.log(status);
+        } else {
+          // Data update failed
+          console.log("Failed to update record");
+        }
+
         
-        console.log(status);
       } catch (error) {
         console.log(error);
       }

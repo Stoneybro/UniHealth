@@ -3,7 +3,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { useGlobalContext } from '@/app/components/utils/Provider';
 
 const Page = () => {
-  const { web5, did } = useGlobalContext();
+  const { web5, did,data,setData } = useGlobalContext();
   const [click, setClick] = useState(true);
   const [personalInfox, setPersonalInfox] = useState({
     Dob: '',
@@ -55,12 +55,16 @@ const Page = () => {
             const { record } = await web5.dwn.records.read({
               message: {
                 filter: {
-                schema:''
+                  recordId: recordno.recordId,
                 },
               },
             });
-          
-            console.log(record);
+            const data= await record.data.json()
+            
+            console.log(data);
+            setData(data)
+            const {status} =await record.send(did)
+            console.log(status);
           } else {
             // Data update failed
             console.log("Failed to update record");
