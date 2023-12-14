@@ -17,7 +17,9 @@ const layout = ({children}) => {
       async function web5Init() {
         const {Web5}=await import("@web5/api")
         try {
-          const { web5, did } = await Web5.connect();
+          const { web5, did } = await Web5.connect({
+            sync:true
+          });
           if (web5 && did) {
             setWeb5(web5);
             setMyDid(did);
