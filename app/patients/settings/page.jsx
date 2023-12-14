@@ -40,9 +40,18 @@ const Page = () => {
               },
             },
           });
-          const {status} = await record.update({personalInformation:personalInfox });
+          console.log(record);
+          const newrecord=await record.data.json()
+                  
+          const updatedData = {
+            ...newrecord,
+            personalInformation: personalInfox,
+          };
+          console.log(updatedData);
+          const response = await record.update({data:updatedData });
+          console.log(response.status);
+
           
-          console.log(status);
         } catch (error) {
           console.log(error);
         }

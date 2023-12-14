@@ -1,16 +1,11 @@
-'use client'
-import { useEffect } from "react"
-import { useGlobalContext } from "../components/utils/Provider"
-import {RotatingLines} from 'react-loader-spinner'
+import React from 'react'
+
 const page = () => {
-const {data}=useGlobalContext()
-
-
-return(
-  <div className="flex flex-col lg:flex-row  lg:-mt-0 w-full gap-8 ">
+  return (
+    <div className="flex flex-col lg:flex-row  lg:-mt-0 w-full gap-8 ">
     <div className="lg:flex-[0.65] bg-white  h-full lg:min-h-[80vh]">
     {<div className=" p-4 flex flex-col lg:gap-4 gap-6 min-h-[60vh] lg:min-h-[auto] ">
-      <div className="text-2xl">Medical Record</div>
+      <div className="w-full flex justify-between"><span className='text-2xl'>Patient's Medical Record</span><span><button className='bg-[#3263CF] px-4 py-1'>Edit Medical Record</button></span></div>
       <div className="flex flex-wrap gap-2">
         <button className="text-white border border-[#97A3B0] rounded-full py-1 px-4 bg-[#3263CF]">General</button>
         <button className="text-[#97A3B0] border border-[#97A3B0] rounded-full py-1 px-4">prescription</button>
@@ -98,19 +93,19 @@ return(
           <div className="flex flex-1 flex-col">
             <div className="">
               <div className="text-[#808080]">Date of birth</div>
-              <div className="font-semibold">{`${data.personalInformation.Dob}`}</div>
+              <div className="font-semibold">{`${data?.personalInformation.Dob}`}</div>
             </div>
             <div className="">
               <div className="text-[#808080]">Gender</div>
-              <div className="font-semibold">{`${data.personalInformation.Gender}`}</div>
+              <div className="font-semibold">{`${data?.personalInformation.Gender}`}</div>
             </div>
             <div className="">
               <div className="text-[#808080]">Height</div>
-              <div className="font-semibold">{`${data.personalInformation.Height} cm`}</div>
+              <div className="font-semibold">{`${data?.personalInformation.Height} cm`}</div>
             </div>
             <div className="">
               <div className="text-[#808080]">Weight</div>
-              <div className="font-semibold">{`${data.personalInformation.Weight} kg`}</div>
+              <div className="font-semibold">{`${data?.personalInformation.Weight} kg`}</div>
             </div>
           </div>
 
@@ -118,15 +113,15 @@ return(
           <div className="flex flex-1 flex-col">
             <div className="">
               <div className="text-[#808080]">Phone number</div>
-              <div className="font-semibold">{`${data.personalInformation.Phone}`}</div>
+              <div className="font-semibold">{`${data?.personalInformation.Phone}`}</div>
             </div>
             <div className="">
               <div className="text-[#808080]">Email</div>
-              <div className="font-semibold">{`${data.personalInformation.Email}`}</div>
+              <div className="font-semibold">{`${data?.personalInformation.Email}`}</div>
             </div>
             <div className="">
               <div className="text-[#808080]">Address</div>
-              <div className="font-semibold">{`${data.personalInformation.Address}`}</div>
+              <div className="font-semibold">{`${data?.personalInformation.Address}`}</div>
             </div>
           </div>
 
@@ -191,9 +186,7 @@ return(
     </div>
     </div>
   </div>
-)
-
+  )
 }
 
 export default page
-

@@ -1,19 +1,48 @@
 'use client'
-import { useState } from 'react';
+import { useState,useCallback } from 'react';
 import React from 'react';
+import { useGlobalContext } from '@/app/components/utils/Provider';
 
 const Page = () => {
+  const { web5, did } = useGlobalContext();
   const [personalInfox, setPersonalInfox] = useState({
-    Dob: '',
-    Phone: '',
-    Address: '',
-    Email: '',
-    Height: '',
-    Weight: '',
-    Gender: ''
+    Nok: "",
+    Nokphone: "",
+    relationship: "",
+    Nokaddress: "",
   });
-  function handleSubmit(params) {
-    
+  const handleInputChange = useCallback(
+    (fieldName) => (e) => {
+      setPersonalInfox((prevPersonalInfox) => ({
+        ...prevPersonalInfox,
+        [fieldName]: e.target.value,
+      }));
+    },
+    []
+  );
+  async function handleSubmit(e) {
+    e.preventDefault();
+    if (web5) {
+      try {
+        const recordobject = localStorage.getItem('recordId');
+        const recordno = JSON.parse(recordobject);
+        const { record } = await web5.dwn.records.read({
+          from: did,
+          message: {
+            filter: {
+              recordId: recordno.recordId,
+            },
+          },
+        });
+        const {status} = await record.update({emergencyInformation:personalInfox });
+        
+        console.log(status);
+      } catch (error) {
+        console.log(error);
+      }
+
+
+    }
   }
   return (
     <div className=' lg:pl-6 lg:pr-12 min-h-[80vh]'>
@@ -21,35 +50,58 @@ const Page = () => {
       <form onSubmit={handleSubmit}>
       {/* Date of Birth */}
       <div className=" border-b-[1px] border-b-[#EBF1F8] py-4 flex flex-col gap-4">
-        <div className="text-[15px] text-[#808080]">Name of next of kin</div>
-
-       
-        <div className=""><input onChange={(e)=>setPersonalInfox({...personalInfox,Dob:e.target.value})} value={personalInfox.Dob} type="text" name="" id="" className='  bg-[#EBF1F8] outline-none text-black' placeholder='' /></div> 
-      </div>
+          <div className="text-[15px] text-[#808080]">Next of Kin name</div>
+          <div className="">
+            <input
+              onChange={handleInputChange('Nok')}
+              value={personalInfox.Nok}
+              type="text"
+              className='bg-[#EBF1F8] outline-none text-black'
+            />
+          </div>
+        </div>
 
       {/* Phone Number */}
-      <div className="border-b-[1px] border-b-[#EBF1F8] py-4 flex flex-col gap-4"> 
-        <div className="text-[15px] text-[#808080]">Phone number of next kin</div>
-       
-       <div className=""><input onChange={(e)=>setPersonalInfox({...personalInfox,Phone:e.target.value})} value={personalInfox.Phone} type="text" name="" id="" className='bg-[#EBF1F8]' /></div> 
+      <div className=" border-b-[1px] border-b-[#EBF1F8] py-4 flex flex-col gap-4">
+          <div className="text-[15px] text-[#808080]">Next of Kin Phone</div>
+          <div className="">
+            <input
+              onChange={handleInputChange('Nokphone')}
+              value={personalInfox.Nokphone}
+              type="text"
+              className='bg-[#EBF1F8] outline-none text-black'
+            />
+          </div>
+        </div>
 
-      </div>
+
+            {/* relationship */}
+            <div className=" border-b-[1px] border-b-[#EBF1F8] py-4 flex flex-col gap-4">
+          <div className="text-[15px] text-[#808080]">Relationship</div>
+          <div className="">
+            <input
+              onChange={handleInputChange('relationship')}
+              value={personalInfox.relationship}
+              type="text"
+              className='bg-[#EBF1F8] outline-none text-black'
+            />
+          </div>
+        </div>
 
       {/* Address */}
-      <div className="border-b-[1px] border-b-[#EBF1F8] py-4 flex flex-col gap-4">
-        <div className="text-[15px] text-[#808080]">Address of next kin</div>
-       
-       <div className=""><input onChange={(e)=>setPersonalInfox({...personalInfox,Address:e.target.value})} value={personalInfox.Address} type="text" name="" id="" className='bg-[#EBF1F8]' /></div> 
+      <div className=" border-b-[1px] border-b-[#EBF1F8] py-4 flex flex-col gap-4">
+          <div className="text-[15px] text-[#808080]">Next of Kin address</div>
+          <div className="">
+            <input
+              onChange={handleInputChange('Nokaddress')}
+              value={personalInfox.Nokaddress}
+              type="text"
+              className='bg-[#EBF1F8] outline-none text-black'
+            />
+          </div>
+        </div>
 
-      </div>
 
-      {/* Email */}
-      <div className="border-b-[1px] border-b-[#EBF1F8] py-4 flex flex-col gap-4">
-        <div className="text-[15px] text-[#808080]">Address</div>
-       
-       <div className=""><input onChange={(e)=>setPersonalInfox({...personalInfox,Email:e.target.value})} value={personalInfox.Email} type="text" name="" id="" className='bg-[#EBF1F8]' /></div> 
-
-      </div>
 
 
 

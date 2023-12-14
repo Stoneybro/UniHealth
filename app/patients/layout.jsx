@@ -23,14 +23,14 @@ const layout = ({children}) => {
             setMyDid(did);
          await configureProtocol(web5, did);
           }
-          const { protocols } = await web5.dwn.protocols.query({
-            message: {
-              filter: {
-                protocol: 'https://schema.org/unihealth',
-              },
-            },
-          });
-          console.log(protocols);
+          // const { protocols } = await web5.dwn.protocols.query({
+          //   message: {
+          //     filter: {
+          //       protocol: 'https://schema.org/unihealth',
+          //     },
+          //   },
+          // });
+          // console.log(protocols);
           if (localStorage.getItem('recordId')) {
             try {
               const recordobject=localStorage.getItem('recordId')
@@ -49,7 +49,7 @@ const layout = ({children}) => {
                 const data= await record.data.json()
                 setRecords(data)
                 setRecordId(recordno.recordId)
-                console.log(recordno.recordId);
+                console.log(data);
               }
  
               
@@ -92,6 +92,12 @@ const layout = ({children}) => {
                   "Gender": "",
                   "Height": "",
                   "Weight": ""
+                },
+                "emergencyInformation": {
+                  "Nok": "",
+                  "Nokphone": "",
+                  "relationship": "",
+                  "Nokaddress": "",
                 }
               }
             }
@@ -127,6 +133,10 @@ const layout = ({children}) => {
           "personalInformation": {
             "schema": "https://schema.org/unihealth/personalinformation",
             "dataFormats": ["application/json"]
+          },
+          "emergencylInformation": {
+            "schema": "https://schema.org/unihealth/emergencyinformation",
+            "dataFormats": ["application/json"]
           }
         },
         "structure": {
@@ -142,6 +152,12 @@ const layout = ({children}) => {
               { "who": "author", "of": "personalInformation", "can": "read" },
               { "who": "author", "of": "personalInformation", "can": "write" },
               { "who": "recipient", "of": "personalinformation", "can": "read" }
+            ]
+          },
+          "emergencyInformation": {
+            "$actions": [
+              { "who": "author", "of": "personalInformation", "can": "write" },
+              { "who": "anyone", "can": "read" }
             ]
           }
         }
@@ -176,10 +192,10 @@ const layout = ({children}) => {
      if (localProtocolStatus.code !== 200 || localProtocol.length === 0) {
     
         const { protocol, status } = await installProtocolLocally(web5, protocolDefinition);
-        console.log("Protocol installed locally", protocol, status);
+        //console.log("Protocol installed locally", protocol, status);
     
         const { status: configureRemoteStatus } = await protocol.send(did);
-        console.log("Did the protocol install on the remote DWN?", configureRemoteStatus);
+       // console.log("Did the protocol install on the remote DWN?", configureRemoteStatus);
       } else {
         console.log("Protocol already installed");
       }
