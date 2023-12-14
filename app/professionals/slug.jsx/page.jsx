@@ -16,21 +16,16 @@ const page = () => {
       <div className=" flex flex-col gap-4">
         <div className="text-xl font-medium">Diagnosis</div>
         <div className="flex flex-col lg:flex-row lg:flex-wrap  gap-4 lg:gap-[auto] lg:items-center">
-       {!data?<RotatingLines  height={40} width={40} strokeColor="#3263CF" />: <div className="flex flex-wrap gap-4">
-        {data?.medicalRecords.general.diagnosis.map((data)=>{
-          if (data?.date==='') {
-            return 'See your health professional for more information'
-          }
-          return(
+       {<div className="flex flex-wrap gap-4">
+
 <div className="bg-[#FCFDFF] border rounded-md min-h-[5rem] flex flex-col justify-start w-[95%] lg:w-[45%] border-[#97A3B030] px-3 py-2">
             <div className="flex justify-between">
               <div className="w-5 h-3 rounded-full bg-orange-400"></div>
-              <div className=" text-sm">{data?.date}</div>
+              <div className=" text-sm"></div>
             </div>
-            <div className="font-semibold">{data?.condition}</div>
+            <div className="font-semibold"></div>
           </div>
-          )
-        })}
+
        
         </div>}
 
@@ -40,18 +35,13 @@ const page = () => {
       <div className="flex flex-col gap-4">
         <div className="text-xl font-medium">Medication</div>
         <div className="flex :flex-row flex-wrap  lg:items-center gap-4 lg:gap-[auto] ">
-       {!data?<RotatingLines  height={40} width={40} strokeColor="#3263CF" />: <div className="flex flex-wrap gap-4">
-        {data?.medicalRecords.general.medication.map((data)=>{
-                    if (data.drug==='') {
-                      return 'See your health professional for more information'
-                    }
-          return(
+       { <div className="flex flex-wrap gap-4">
+
 <div className="flex flex-col  gap-4 bg-[#FCFDFF] border rounded-md w-[45%] lg:w-[23%]  border-[#97A3B030] px-3 py-2">
-            <div className="font-semibold text-lg">{data?.drug}</div>
-            <div className="text-[#97A3B0]">{data?.dose}</div>
+            <div className="font-semibold text-lg"></div>
+            <div className="text-[#97A3B0]"></div>
           </div>
-          )
-        })}
+
         </div>}
 
 
@@ -72,7 +62,7 @@ const page = () => {
         </div>
         <div className="flex justify-center items-center w-full">
         {/*  */}
-        {!data?<RotatingLines  height={40} width={40} strokeColor="#3263CF" />:<div className="flex w-full flex-col gap-4">
+        {<div className="flex w-full flex-col gap-4">
         <div className="bg-[#EBF1F8] w-full px-4 py-4">
           <div className="text-[#808080]">DID</div>
           <div className="text-lg truncate flex gap-1 items-center"><span>8WG2983e29....</span>  <span>
@@ -93,19 +83,19 @@ const page = () => {
           <div className="flex flex-1 flex-col">
             <div className="">
               <div className="text-[#808080]">Date of birth</div>
-              <div className="font-semibold">{`${data?.personalInformation.Dob}`}</div>
+              <div className="font-semibold">kjkbl</div>
             </div>
             <div className="">
               <div className="text-[#808080]">Gender</div>
-              <div className="font-semibold">{`${data?.personalInformation.Gender}`}</div>
+              <div className="font-semibold">male</div>
             </div>
             <div className="">
               <div className="text-[#808080]">Height</div>
-              <div className="font-semibold">{`${data?.personalInformation.Height} cm`}</div>
+              <div className="font-semibold">kljsjnlkwe</div>
             </div>
             <div className="">
               <div className="text-[#808080]">Weight</div>
-              <div className="font-semibold">{`${data?.personalInformation.Weight} kg`}</div>
+              <div className="font-semibold">lninweoo</div>
             </div>
           </div>
 
@@ -113,15 +103,15 @@ const page = () => {
           <div className="flex flex-1 flex-col">
             <div className="">
               <div className="text-[#808080]">Phone number</div>
-              <div className="font-semibold">{`${data?.personalInformation.Phone}`}</div>
+              <div className="font-semibold">asefvkw;er</div>
             </div>
             <div className="">
               <div className="text-[#808080]">Email</div>
-              <div className="font-semibold">{`${data?.personalInformation.Email}`}</div>
+              <div className="font-semibold">aeflknwepoi</div>
             </div>
             <div className="">
               <div className="text-[#808080]">Address</div>
-              <div className="font-semibold">{`${data?.personalInformation.Address}`}</div>
+              <div className="font-semibold">sdj vlkflksr</div>
             </div>
           </div>
 
