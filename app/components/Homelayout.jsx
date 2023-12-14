@@ -5,7 +5,7 @@ const Homelayout = ({children}) => {
   return (
     <div className='h-screen'>
         <div className="flex h-full ">
-        <div className="flex-1 max-w-[50vw] flex flex-col justify-between items-start p-8 bg-[url:'/bg.jpg'] bg-cover bg-center h-full" style={{"backgroundImage":'url(/bg.jpg)'}}>
+        <div className="lg:flex-1 lg:max-w-[50vw] hidden lg:flex flex-col justify-between items-start p-8 bg-[url:'/bg.jpg'] bg-cover bg-center h-full" style={{"backgroundImage":'url(/bg.jpg)'}}>
             <div className="flex gap-1">
                 <Image src={logo} width={150} height={150} />
 
@@ -14,7 +14,7 @@ const Homelayout = ({children}) => {
             Revolutionising Healthcare with Decentralized Records and Access to Healthcare.
             </div>
         </div>
-        <div className="flex-1 max-w-[50vw]">{children}</div>
+        <div className="lg:flex-1 w-full lg:max-w-[50vw]">{children}</div>
         </div>
     </div>
   )

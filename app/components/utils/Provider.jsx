@@ -6,11 +6,12 @@ const Provider = ({children}) => {
     const [id,setId]=useState('')
     const [web5,setWeb5]=useState() 
     const [did,setDid]=useState()
+    const [nav,setNav]=useState(false)
     const [personalInfo, setPersonalInfo] = useState({
         Dob:'',Phone:'',Address:'',Email:'',Height:'',Weight:'',Gender:''
       })
   return (
-    <context.Provider value={{data,setData,personalInfo,setPersonalInfo,id,setId,setWeb5,web5,did,setDid}}>
+    <context.Provider value={{data,setData,personalInfo,setPersonalInfo,id,setId,setWeb5,web5,did,setDid,nav,setNav}}>
         {children}
     </context.Provider>
   )

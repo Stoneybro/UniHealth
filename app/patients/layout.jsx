@@ -12,111 +12,111 @@ const layout = ({children}) => {
     const [records,setRecords]=useState()
     const [recordId,setRecordId]=useState()
 
-    useEffect(() => {
+  //   useEffect(() => {
       
-      async function web5Init() {
-        const {Web5}=await import("@web5/api")
-        try {
-          const { web5, did } = await Web5.connect();
-          if (web5 && did) {
-            setWeb5(web5);
-            setMyDid(did);
-   //         await configureProtocol(web5, did);
-          }
-          if (localStorage.getItem('recordId')) {
-            try {
-              const recordobject=localStorage.getItem('recordId')
-              const recordno=JSON.parse(recordobject)
-              console.log(recordno.recordId);
-              const {record} = await web5.dwn.records.read({
-                from: did,
-                message: {
-                  filter:{
-                    recordId:recordno.recordId,
+  //     async function web5Init() {
+  //       const {Web5}=await import("@web5/api")
+  //       try {
+  //         const { web5, did } = await Web5.connect();
+  //         if (web5 && did) {
+  //           setWeb5(web5);
+  //           setMyDid(did);
+  //  //         await configureProtocol(web5, did);
+  //         }
+  //         if (localStorage.getItem('recordId')) {
+  //           try {
+  //             const recordobject=localStorage.getItem('recordId')
+  //             const recordno=JSON.parse(recordobject)
+  //             console.log(recordno.recordId);
+  //             const {record} = await web5.dwn.records.read({
+  //               from: did,
+  //               message: {
+  //                 filter:{
+  //                   recordId:recordno.recordId,
                     
-                  }
-                },
-              });
-              if (record) {
-                const data= await record.data.json()
-                setRecords(data)
-                setRecordId(recordno.recordId)
-              }
+  //                 }
+  //               },
+  //             });
+  //             if (record) {
+  //               const data= await record.data.json()
+  //               setRecords(data)
+  //               setRecordId(recordno.recordId)
+  //             }
  
               
-            } catch (error) {
-              console.log(error);
-            }
+  //           } catch (error) {
+  //             console.log(error);
+  //           }
 
 
-          }else{
-            console.log('No records found, creating new records');
-            const { record } = await web5.dwn.records.write({
-              "data": {
-                "message": {
-                  "dataFormat": "application/json",
-                  "published": true,
-                  "schema": "https://schema.org/unihealth/medicalrecords",
-                  "protocol": "https://schema.org/unihealth"
-                },
-                "medicalRecords": {
-                  "general": {
-                    "diagnosis": [
-                      { "date": "", "condition": "" }
-                    ],
-                    "medication": [
-                      {
-                        "drug": "",
-                        "dose": ""
-                      }
-                    ]
-                  },
-                  "prescription": {},
-                  "vaccination": {},
-                  "surgery": {}
-                },
-                "personalInformation": {
-                  "Dob": "",
-                  "Phone": "",
-                  "Email": "",
-                  "Address": "",
-                  "Gender": "",
-                  "Height": "",
-                  "Weight": ""
-                }
-              }
-            }
-            );
-            const data=await record.data.json()
-            setRecordId(record.id)
-            if (data) {
-              setRecords(data);
-              console.log(data ,'records created and set');
-            }
-            const {status}=await record.send(did)
-            console.log(status);
-            localStorage.setItem('recordId',JSON.stringify(record))
-          }
+  //         }else{
+  //           console.log('No records found, creating new records');
+  //           const { record } = await web5.dwn.records.write({
+  //             "data": {
+  //               "message": {
+  //                 "dataFormat": "application/json",
+  //                 "published": true,
+  //                 "schema": "https://schema.org/unihealth/medicalrecords",
+  //                 "protocol": "https://schema.org/unihealth"
+  //               },
+  //               "medicalRecords": {
+  //                 "general": {
+  //                   "diagnosis": [
+  //                     { "date": "", "condition": "" }
+  //                   ],
+  //                   "medication": [
+  //                     {
+  //                       "drug": "",
+  //                       "dose": ""
+  //                     }
+  //                   ]
+  //                 },
+  //                 "prescription": {},
+  //                 "vaccination": {},
+  //                 "surgery": {}
+  //               },
+  //               "personalInformation": {
+  //                 "Dob": "",
+  //                 "Phone": "",
+  //                 "Email": "",
+  //                 "Address": "",
+  //                 "Gender": "",
+  //                 "Height": "",
+  //                 "Weight": ""
+  //               }
+  //             }
+  //           }
+  //           );
+  //           const data=await record.data.json()
+  //           setRecordId(record.id)
+  //           if (data) {
+  //             setRecords(data);
+  //             console.log(data ,'records created and set');
+  //           }
+  //           const {status}=await record.send(did)
+  //           console.log(status);
+  //           localStorage.setItem('recordId',JSON.stringify(record))
+  //         }
 
-         } catch (error) {
-           console.log(error);
-         }
-      }
+  //        } catch (error) {
+  //          console.log(error);
+  //        }
+  //     }
     
-      web5Init();
-    }, []);
+  //     web5Init();
+  //   }, []);
     
 
 
   return (
     <Provider>
-    <div className='bg-[#F6F7FA] h-full'>
+    <div className='bg-[#F6F7FA] h-full min-h-[100vh] lg:min-h-[auto]'>
     <Nav />
-    <div className="grid  grid-cols-[5%,95%]">
+    <div className="lg:grid  lg:grid-cols-[5%,95%]">
     <div className="">
     <Sidebar records={records} id={recordId} web5={web5} mydid={myDid} />
     </div>
-    <div className=" m-6">
+    <div className="m-3 lg:m-6">
     {children}
     </div>
     </div>
