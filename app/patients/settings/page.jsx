@@ -1,8 +1,10 @@
 'use client'
-import React, { useEffect,useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useGlobalContext } from '@/app/components/utils/Provider';
+
 const Page = () => {
-  const { data,personalInfo,setPersonalInfo,id,web5,did } = useGlobalContext();
+  const { web5, did } = useGlobalContext();
+  const [click, setClick] = useState(true);
   const [personalInfox, setPersonalInfox] = useState({
     Dob: '',
     Phone: '',
@@ -10,112 +12,150 @@ const Page = () => {
     Email: '',
     Height: '',
     Weight: '',
-    Gender: ''
+    Gender: '',
   });
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    console.log('submitted');
-    console.log(id);
-    setPersonalInfo(personalInfox);
-    // Get the record
-const { record } = await web5.dwn.records.read({
-  message: {
-    filter: {
-      recordId: id
+  const handleInputChange = useCallback(
+    (fieldName) => (e) => {
+      setPersonalInfox((prevPersonalInfox) => ({
+        ...prevPersonalInfox,
+        [fieldName]: e.target.value,
+      }));
+    },
+    []
+  );
+
+
+    async function handleSubmit(e) {
+      e.preventDefault();
+      if (web5) {
+        try {
+          const recordobject = localStorage.getItem('recordId');
+          const recordno = JSON.parse(recordobject);
+          const { record } = await web5.dwn.records.read({
+            from: did,
+            message: {
+              filter: {
+                recordId: recordno.recordId,
+              },
+            },
+          });
+          const {status} = await record.update({personalInformation:personalInfox });
+          
+          console.log(status);
+        } catch (error) {
+          console.log(error);
+        }
+
+
+      }
     }
-  }
-});
-console.log(record.data.json());
-// Update the record
-console.log(personalInfox,personalInfo);
-const {status} = await record.update({ data: personalInfo});
-const { record: updatedRecord } = await web5.dwn.records.read({
-  message: {
-    filter: {
-      recordId: id
-    }
-  }
-});
-console.log(updatedRecord.data.json());
-  }
+
+
+
   return (
     <div className=' lg:pl-6 lg:pr-12 min-h-[80vh]'>
       <div className="text-xl lg:hidden">Personal Information</div>
       <form onSubmit={handleSubmit}>
-      {/* Date of Birth */}
-      <div className=" border-b-[1px] border-b-[#EBF1F8] py-4 flex flex-col gap-4">
-        <div className="text-[15px] text-[#808080]">Date of birth</div>
-
-       
-       <div className=""><input onChange={(e)=>setPersonalInfox({...personalInfox,Dob:e.target.value})} value={personalInfox.Dob} type="text" name="" id="" className='  bg-[#EBF1F8] outline-none text-black' placeholder='' /></div> 
-
-      </div>
-
-      {/* Phone Number */}
-      <div className="border-b-[1px] border-b-[#EBF1F8] py-4 flex flex-col gap-4"> 
-        <div className="text-[15px] text-[#808080]">Phone number</div>
-       
-       <div className=""><input onChange={(e)=>setPersonalInfox({...personalInfox,Phone:e.target.value})} value={personalInfox.Phone} type="text" name="" id="" className='bg-[#EBF1F8] outline-none' /></div> 
-
-      </div>
-
-      {/* Address */}
-      <div className="border-b-[1px] border-b-[#EBF1F8] py-4 flex flex-col gap-4">
-        <div className="text-[15px] text-[#808080]">Address</div>
-       
-       <div className=""><input onChange={(e)=>setPersonalInfox({...personalInfox,Address:e.target.value})} value={personalInfox.Address} type="text" name="" id="" className='bg-[#EBF1F8] outline-none' /></div> 
-
-      </div>
-
-      {/* Email */}
-      <div className="border-b-[1px] border-b-[#EBF1F8] py-4 flex flex-col gap-4">
-        <div className="text-[15px] text-[#808080]">Email</div>
-       
-       <div className=""><input onChange={(e)=>setPersonalInfox({...personalInfox,Email:e.target.value})} value={personalInfox.Email} type="text" name="" id="" className='bg-[#EBF1F8] outline-none' /></div> 
-
-      </div>
-
-      <div className="">
-        {/* Nested Section for Height, Weight, and BMI */}
-        <div className="flex gap-4 py-4 border-b-[1px] border-b-[#EBF1F8] flex-col lg:flex-row">
-
-          {/* Height */}
+        <div className=" border-b-[1px] border-b-[#EBF1F8] py-4 flex flex-col gap-4">
+          <div className="text-[15px] text-[#808080]">Date of birth</div>
           <div className="">
-            <div className="text-[15px] text-[#808080]">Height</div>
-           
-           <div className=""><input onChange={(e)=>setPersonalInfox({...personalInfox,Height:e.target.value})} value={personalInfox.Height} type="number"  name="" id="" className='bg-[#EBF1F8] outline-none' /></div> 
-
+            <input
+              onChange={handleInputChange('Dob')}
+              value={personalInfox.Dob}
+              type="text"
+              className='bg-[#EBF1F8] outline-none text-black'
+            />
           </div>
-
-          {/* Weight */}
-          <div className="">
-            <div className="text-[15px] text-[#808080]">Weight</div>
-           
-           <div className=""><input onChange={(e)=>setPersonalInfox({...personalInfox,Weight:e.target.value})} value={personalInfox.Weight} type="text" name="" id="" className='bg-[#EBF1F8] outline-none' /></div> 
-
-          </div>
-
-
-
         </div>
 
-
-
-        {/* Gender */}
-        <div className=" py-4 flex flex-col gap-4 border-b-[1px] border-b-[#EBF1F8]">
-          <div className="text-[15px] text-[#808080]">Gender</div>
-         
-         <div className=""><input onChange={(e)=>setPersonalInfox({...personalInfox,Gender:e.target.value})} value={personalInfox.Gender} type="text" name="" id="" className='bg-[#EBF1F8] outline-none' /></div> 
-
+        <div className="border-b-[1px] border-b-[#EBF1F8] py-4 flex flex-col gap-4">
+          <div className="text-[15px] text-[#808080]">Phone number</div>
+          <div className="">
+            <input
+              onChange={handleInputChange('Phone')}
+              value={personalInfox.Phone}
+              type="text"
+              className='bg-[#EBF1F8] outline-none'
+            />
+          </div>
         </div>
 
-      </div>
+        <div className="border-b-[1px] border-b-[#EBF1F8] py-4 flex flex-col gap-4">
+          <div className="text-[15px] text-[#808080]">Address</div>
+          <div className="">
+            <input
+              onChange={handleInputChange('Address')}
+              value={personalInfox.Address}
+              type="text"
+              className='bg-[#EBF1F8] outline-none'
+            />
+          </div>
+        </div>
 
-      <div className=" flex justify-end py-4"><button className='bg-[#3263CF] px-3 py-1 text-white '>Submit</button></div>
+        <div className="border-b-[1px] border-b-[#EBF1F8] py-4 flex flex-col gap-4">
+          <div className="text-[15px] text-[#808080]">Email</div>
+          <div className="">
+            <input
+              onChange={handleInputChange('Email')}
+              value={personalInfox.Email}
+              type="text"
+              className='bg-[#EBF1F8] outline-none'
+            />
+          </div>
+        </div>
+
+        <div className="">
+          <div className="flex gap-4 py-4 border-b-[1px] border-b-[#EBF1F8] flex-col lg:flex-row">
+            <div className="">
+              <div className="text-[15px] text-[#808080]">Height</div>
+              <div className="">
+                <input
+                  onChange={handleInputChange('Height')}
+                  value={personalInfox.Height}
+                  type="number"
+                  className='bg-[#EBF1F8] outline-none'
+                />
+              </div>
+            </div>
+
+            <div className="">
+              <div className="text-[15px] text-[#808080]">Weight</div>
+              <div className="">
+                <input
+                  onChange={handleInputChange('Weight')}
+                  value={personalInfox.Weight}
+                  type="text"
+                  className='bg-[#EBF1F8] outline-none'
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className=" py-4 flex flex-col gap-4 border-b-[1px] border-b-[#EBF1F8]">
+            <div className="text-[15px] text-[#808080]">Gender</div>
+            <div className="">
+              <input
+                onChange={handleInputChange('Gender')}
+                value={personalInfox.Gender}
+                type="text"
+                className='bg-[#EBF1F8] outline-none'
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className=" flex justify-end py-4">
+          <button
+            className='bg-[#3263CF] px-3 py-1 text-white '
+           
+          >
+            Submit
+          </button>
+        </div>
       </form>
     </div>
   );
-}
+};
 
 export default Page;
