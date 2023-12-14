@@ -24,7 +24,7 @@ return(
        {!data?<RotatingLines  height={40} width={40} strokeColor="#3263CF" />: <div className="flex flex-wrap gap-4">
         {data.medicalRecords.general.diagnosis.map((data)=>{
           if (data.date==='') {
-            return 'See your health proffesional for more information'
+            return 'See your health professional for more information'
           }
           return(
 <div className="bg-[#FCFDFF] border rounded-md min-h-[5rem] flex flex-col justify-start w-[95%] lg:w-[45%] border-[#97A3B030] px-3 py-2">
@@ -48,7 +48,7 @@ return(
        {!data?<RotatingLines  height={40} width={40} strokeColor="#3263CF" />: <div className="flex flex-wrap gap-4">
         {data.medicalRecords.general.medication.map((data)=>{
                     if (data.drug==='') {
-                      return 'See your health proffesional for more information'
+                      return 'See your health professional for more information'
                     }
           return(
 <div className="flex flex-col  gap-4 bg-[#FCFDFF] border rounded-md w-[45%] lg:w-[23%]  border-[#97A3B030] px-3 py-2">
