@@ -9,7 +9,7 @@ import Link from 'next/link'
 import { useGlobalContext } from './utils/Provider'
 
 const Sidebar = ({records,id,web5,mydid}) => {
-const {setData,data,setId,setWeb5,setDid,nav}=useGlobalContext()
+const {setData,data,setId,setWeb5,setDid,nav,setNav}=useGlobalContext()
   useEffect(()=>{
     setData(records)
     setId(id)
@@ -24,11 +24,12 @@ const {setData,data,setId,setWeb5,setDid,nav}=useGlobalContext()
         <Link href={'/patients/facilities'}><Facility /></Link>
         <Link href={'/patients/settings'}><Settings /></Link>
       </div>
-      <div className={`lg:hidden  flex-col gap-12 ${nav?' opacity-100':'opacity-0'} bg-white text-4xl items-center pt-8 lg:pt-0  flex justify-center`}>
-        <div className="w-full flex justify-center"><Link href={'/patients'}> Home</Link></div>
-        <div className="w-full flex justify-center"><Link href={'/patients/practitioner'}>Health Practicioners</Link></div>
-        <div className="w-full flex justify-center"><Link href={'/patients/facilities'}>Health facilities</Link></div>
-        <div className="w-full flex justify-center"><Link href={'/patients/settings'}>Settings</Link></div>
+      <div className={`lg:hidden  flex-col  ${nav?' opacity-100':'opacity-0'} bg-white text-3xl items-center pt-8 lg:pt-0  flex justify-center`}>
+        <div  className="w-full flex justify-center border-b-[1px] border-b-[#EBF1F8] py-4 " onClick={()=>setNav(false)}><Link href={'/patients'}> Home</Link></div>
+        <div className="w-full flex justify-center border-b-[1px] border-b-[#EBF1F8] py-4 " onClick={()=>setNav(false)} ><Link href={'/patients/practitioner'}>Health Practicioners</Link></div>
+        <div className="w-full flex justify-center border-b-[1px] border-b-[#EBF1F8] py-4 " onClick={()=>setNav(false)}><Link href={'/patients/facilities'}>Health facilities</Link></div>
+        <div className="w-full flex justify-center border-b-[1px] border-b-[#EBF1F8] py-4 " onClick={()=>setNav(false)}><Link href={'/patients/settings'}>personal Information</Link></div>
+        <div className="w-full flex justify-center py-4 " onClick={()=>setNav(false)}><Link href={'/patients/settings/emergency'}>Emergency Information</Link></div>
       </div>
     </div>
   )

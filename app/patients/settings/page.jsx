@@ -40,14 +40,15 @@ const { record: updatedRecord } = await web5.dwn.records.read({
 console.log(updatedRecord.data.json());
   }
   return (
-    <div className=' pl-6 pr-12 min-h-[80vh]'>
+    <div className=' lg:pl-6 lg:pr-12 min-h-[80vh]'>
+      <div className="text-xl lg:hidden">Personal Information</div>
       <form onSubmit={handleSubmit}>
       {/* Date of Birth */}
       <div className=" border-b-[1px] border-b-[#EBF1F8] py-4 flex flex-col gap-4">
         <div className="text-[15px] text-[#808080]">Date of birth</div>
 
        
-       <div className=""><input onChange={(e)=>setPersonalInfox({...personalInfox,Dob:e.target.value})} value={personalInfox.Dob} type="text" name="" id="" className=' focus:bg-[#EBF1F8] bg-white outline-none text-black' placeholder='Date of Birth' /></div> 
+       <div className=""><input onChange={(e)=>setPersonalInfox({...personalInfox,Dob:e.target.value})} value={personalInfox.Dob} type="text" name="" id="" className='  bg-[#EBF1F8] outline-none text-black' placeholder='' /></div> 
 
       </div>
 
@@ -55,7 +56,7 @@ console.log(updatedRecord.data.json());
       <div className="border-b-[1px] border-b-[#EBF1F8] py-4 flex flex-col gap-4"> 
         <div className="text-[15px] text-[#808080]">Phone number</div>
        
-       <div className=""><input onChange={(e)=>setPersonalInfox({...personalInfox,Phone:e.target.value})} value={personalInfox.Phone} type="text" name="" id="" className='bg-[#EBF1F8]' /></div> 
+       <div className=""><input onChange={(e)=>setPersonalInfox({...personalInfox,Phone:e.target.value})} value={personalInfox.Phone} type="text" name="" id="" className='bg-[#EBF1F8] outline-none' /></div> 
 
       </div>
 
@@ -63,7 +64,7 @@ console.log(updatedRecord.data.json());
       <div className="border-b-[1px] border-b-[#EBF1F8] py-4 flex flex-col gap-4">
         <div className="text-[15px] text-[#808080]">Address</div>
        
-       <div className=""><input onChange={(e)=>setPersonalInfox({...personalInfox,Address:e.target.value})} value={personalInfox.Address} type="text" name="" id="" className='bg-[#EBF1F8]' /></div> 
+       <div className=""><input onChange={(e)=>setPersonalInfox({...personalInfox,Address:e.target.value})} value={personalInfox.Address} type="text" name="" id="" className='bg-[#EBF1F8] outline-none' /></div> 
 
       </div>
 
@@ -71,19 +72,19 @@ console.log(updatedRecord.data.json());
       <div className="border-b-[1px] border-b-[#EBF1F8] py-4 flex flex-col gap-4">
         <div className="text-[15px] text-[#808080]">Email</div>
        
-       <div className=""><input onChange={(e)=>setPersonalInfox({...personalInfox,Email:e.target.value})} value={personalInfox.Email} type="text" name="" id="" className='bg-[#EBF1F8]' /></div> 
+       <div className=""><input onChange={(e)=>setPersonalInfox({...personalInfox,Email:e.target.value})} value={personalInfox.Email} type="text" name="" id="" className='bg-[#EBF1F8] outline-none' /></div> 
 
       </div>
 
       <div className="">
         {/* Nested Section for Height, Weight, and BMI */}
-        <div className="flex gap-4 py-4 border-b-[1px] border-b-[#EBF1F8]">
+        <div className="flex gap-4 py-4 border-b-[1px] border-b-[#EBF1F8] flex-col lg:flex-row">
 
           {/* Height */}
           <div className="">
             <div className="text-[15px] text-[#808080]">Height</div>
            
-           <div className=""><input onChange={(e)=>setPersonalInfox({...personalInfox,Height:e.target.value})} value={personalInfox.Height} type="number"  name="" id="" className='bg-[#EBF1F8]' /></div> 
+           <div className=""><input onChange={(e)=>setPersonalInfox({...personalInfox,Height:e.target.value})} value={personalInfox.Height} type="number"  name="" id="" className='bg-[#EBF1F8] outline-none' /></div> 
 
           </div>
 
@@ -91,7 +92,7 @@ console.log(updatedRecord.data.json());
           <div className="">
             <div className="text-[15px] text-[#808080]">Weight</div>
            
-           <div className=""><input onChange={(e)=>setPersonalInfox({...personalInfox,Weight:e.target.value})} value={personalInfox.Weight} type="text" name="" id="" className='bg-[#EBF1F8]' /></div> 
+           <div className=""><input onChange={(e)=>setPersonalInfox({...personalInfox,Weight:e.target.value})} value={personalInfox.Weight} type="text" name="" id="" className='bg-[#EBF1F8] outline-none' /></div> 
 
           </div>
 
@@ -105,7 +106,7 @@ console.log(updatedRecord.data.json());
         <div className=" py-4 flex flex-col gap-4 border-b-[1px] border-b-[#EBF1F8]">
           <div className="text-[15px] text-[#808080]">Gender</div>
          
-         <div className=""><input onChange={(e)=>setPersonalInfox({...personalInfox,Gender:e.target.value})} value={personalInfox.Gender} type="text" name="" id="" className='bg-[#EBF1F8]' /></div> 
+         <div className=""><input onChange={(e)=>setPersonalInfox({...personalInfox,Gender:e.target.value})} value={personalInfox.Gender} type="text" name="" id="" className='bg-[#EBF1F8] outline-none' /></div> 
 
         </div>
 

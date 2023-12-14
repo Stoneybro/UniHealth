@@ -66,7 +66,7 @@ return(
     </div>}
     </div>
     <div className="lg:flex-[0.35] flex flex-col">
-    <div className="bg-white mb-8 h-full min-h-[35vh] lg:min-h-[35vh] ">
+    <div className="bg-white mb-8 h-full  ">
     <div className="">
     <div className="  py-4">
       <div className="flex flex-col gap-4">
@@ -143,7 +143,7 @@ return(
     </div>
 
 
-    <div className="bg-white mb-8 h-full  min-h-[20vh] lg:min-h-[30vh]">
+    <div className="bg-white mb-8 h-full ">
     <div className="">
     <div className="  py-4">
       <div className="flex flex-col gap-4">
