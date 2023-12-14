@@ -144,7 +144,7 @@ const page = () => {
           <div className="flex flex-1 flex-col">
             <div className="">
               <div className="text-[#808080]">Emergency contact</div>
-              <div className="font-semibold">{bikui}</div>
+              <div className="font-semibold">khibvikbvu</div>
             </div>
             <div className="">
               <div className="text-[#808080]">phone</div>
