@@ -139,24 +139,24 @@ const page = () => {
         </div>
         <div className="flex justify-center items-center w-full">
 
-        {!data?<RotatingLines  height={40} width={40} strokeColor="#3263CF" />:<div className="flex w-full flex-col gap-4">
+        {<div className="flex w-full flex-col gap-4">
         <div className="flex w-full justify-between  px-4">
           <div className="flex flex-1 flex-col">
             <div className="">
               <div className="text-[#808080]">Emergency contact</div>
-              <div className="font-semibold">{`${data?.emergencyInformation.Nok}`}</div>
+              <div className="font-semibold">{bikui}</div>
             </div>
             <div className="">
               <div className="text-[#808080]">phone</div>
-              <div className="font-semibold">{`${data?.emergencyInformation.Nokphone}`}</div>
+              <div className="font-semibold">fdghjhklk</div>
             </div>
             <div className="">
               <div className="text-[#808080]">address</div>
-              <div className="font-semibold">{`${data?.emergencyInformation.Nokaddress} `}</div>
+              <div className="font-semibold">yulfyflyfl</div>
             </div>
             <div className="">
               <div className="text-[#808080]">relationship</div>
-              <div className="font-semibold">{`${data?.emergencyInformation.relationship} `}</div>
+              <div className="font-semibold">jkvhjhv.hv</div>
             </div>
           </div>
 
