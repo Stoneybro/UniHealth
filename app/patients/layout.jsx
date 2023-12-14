@@ -17,13 +17,11 @@ const layout = ({children}) => {
       async function web5Init() {
         const {Web5}=await import("@web5/api")
         try {
-          const { web5, did } = await Web5.connect({
-            sync:true
-          });
+          const { web5, did } = await Web5.connect();
           if (web5 && did) {
             setWeb5(web5);
             setMyDid(did);
-       //  await configureProtocol(web5, did);
+         await configureProtocol(web5, did);
           }
           // const { protocols } = await web5.dwn.protocols.query({
           //   message: {
@@ -51,7 +49,7 @@ const layout = ({children}) => {
                 const data= await record.data.json()
                 setRecords(data)
                 setRecordId(recordno.recordId)
-                console.log(data);
+                console.log(recordno.recordId);
               }
  
               
@@ -68,7 +66,7 @@ const layout = ({children}) => {
                   "dataFormat": "application/json",
                   "published": true,
                   "schema": "https://schema.org/unihealth/medicalrecords",
-               //   "protocol": "https://schema.org/unihealth"
+                  "protocol": "https://schema.org/unihealth"
                 },
                 "medicalRecords": {
                   "general": {
@@ -100,6 +98,7 @@ const layout = ({children}) => {
                   "Nokphone": "",
                   "relationship": "",
                   "Nokaddress": "",
+
                 }
               }
             }
