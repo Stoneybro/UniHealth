@@ -23,7 +23,7 @@ const layout = ({children}) => {
           if (web5 && did) {
             setWeb5(web5);
             setMyDid(did);
-         await configureProtocol(web5, did);
+       //  await configureProtocol(web5, did);
           }
           // const { protocols } = await web5.dwn.protocols.query({
           //   message: {
@@ -68,7 +68,7 @@ const layout = ({children}) => {
                   "dataFormat": "application/json",
                   "published": true,
                   "schema": "https://schema.org/unihealth/medicalrecords",
-                  "protocol": "https://schema.org/unihealth"
+               //   "protocol": "https://schema.org/unihealth"
                 },
                 "medicalRecords": {
                   "general": {

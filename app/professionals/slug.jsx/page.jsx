@@ -17,17 +17,17 @@ const page = () => {
         <div className="text-xl font-medium">Diagnosis</div>
         <div className="flex flex-col lg:flex-row lg:flex-wrap  gap-4 lg:gap-[auto] lg:items-center">
        {!data?<RotatingLines  height={40} width={40} strokeColor="#3263CF" />: <div className="flex flex-wrap gap-4">
-        {data.medicalRecords.general.diagnosis.map((data)=>{
-          if (data.date==='') {
+        {data?.medicalRecords.general.diagnosis.map((data)=>{
+          if (data?.date==='') {
             return 'See your health professional for more information'
           }
           return(
 <div className="bg-[#FCFDFF] border rounded-md min-h-[5rem] flex flex-col justify-start w-[95%] lg:w-[45%] border-[#97A3B030] px-3 py-2">
             <div className="flex justify-between">
               <div className="w-5 h-3 rounded-full bg-orange-400"></div>
-              <div className=" text-sm">{data.date}</div>
+              <div className=" text-sm">{data?.date}</div>
             </div>
-            <div className="font-semibold">{data.condition}</div>
+            <div className="font-semibold">{data?.condition}</div>
           </div>
           )
         })}
@@ -41,14 +41,14 @@ const page = () => {
         <div className="text-xl font-medium">Medication</div>
         <div className="flex :flex-row flex-wrap  lg:items-center gap-4 lg:gap-[auto] ">
        {!data?<RotatingLines  height={40} width={40} strokeColor="#3263CF" />: <div className="flex flex-wrap gap-4">
-        {data.medicalRecords.general.medication.map((data)=>{
+        {data?.medicalRecords.general.medication.map((data)=>{
                     if (data.drug==='') {
                       return 'See your health professional for more information'
                     }
           return(
 <div className="flex flex-col  gap-4 bg-[#FCFDFF] border rounded-md w-[45%] lg:w-[23%]  border-[#97A3B030] px-3 py-2">
-            <div className="font-semibold text-lg">{data.drug}</div>
-            <div className="text-[#97A3B0]">{data.dose}</div>
+            <div className="font-semibold text-lg">{data?.drug}</div>
+            <div className="text-[#97A3B0]">{data?.dose}</div>
           </div>
           )
         })}
