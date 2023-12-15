@@ -12,7 +12,7 @@ UniHealth is a decentralized health app that provides a secure platform for mana
   - [Personal Account](#personal-account)
   - [Healthcare Account](#healthcare-account)
   - [Healthcare Facility Account](#healthcare-facility-account)
-- [Contributing](#contributing)
+- [Contributors](#contributors)
 - [License](#license)
 ![Home](https://github.com/Stoneybro/UniHealth/assets/96637634/ac778d51-bfb0-4183-bcc7-67f72432da74)
 
@@ -69,8 +69,9 @@ Healthcare facilities, institutions, and organizations can sign in to manage pat
 Some of the features are still being built
 
 
-
-
+## Contributors
+- **Developer**:Livingstone zion
+- **Designer**:Agboje kelvin
 
 
 
