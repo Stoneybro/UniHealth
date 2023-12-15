@@ -14,6 +14,7 @@ UniHealth is a decentralized health app that provides a secure platform for mana
   - [Healthcare Facility Account](#healthcare-facility-account)
 - [Contributing](#contributing)
 - [License](#license)
+![Home](https://github.com/Stoneybro/UniHealth/assets/96637634/ac778d51-bfb0-4183-bcc7-67f72432da74)
 
 ## Features
 
@@ -23,18 +24,10 @@ UniHealth is a decentralized health app that provides a secure platform for mana
 - **Health Facility Directory:** Explore available healthcare facilities on the platform.
 - **Efficient Patient-Practitioner Communication:** Streamlined communication channels for better healthcare delivery.
 
-## Getting Started
 
-### Prerequisites
-
-- [List any prerequisites or dependencies required for setup.]
-
-### Installation
-
-[Provide step-by-step instructions on how to install and set up UniHealth.]
 
 ## User Flow
-
+![Dashboard](https://github.com/Stoneybro/UniHealth/assets/96637634/4876dc1b-5633-42d1-941d-d28654067dfb)
 ### Personal Account
 
 Individuals seeking personal healthcare services can sign in to access the following features:
@@ -71,13 +64,9 @@ Healthcare facilities, institutions, and organizations can sign in to manage pat
 - **Patient List:** Access a list of patients using the facility.
 - **Add Medical Records:** Record and manage patient medical records.
 
-## Contributing
+## Note
 
-[Explain how people can contribute to the UniHealth project. Include guidelines for submitting issues or pull requests.]
-
-## License
-
-This project is licensed under the [Your License] - see the [LICENSE.md](LICENSE.md) file for details.
+Some of the features are still being built
 
 
 
