@@ -1,5 +1,5 @@
 'use client'
-
+import Link from "next/link"
 const page = () => {
 
 
@@ -27,6 +27,27 @@ return(
         <button className="text-[#97A3B0] border border-[#97A3B0] rounded-full py-1 px-4">Paid</button>
 
       </div>
+      <div className="w-[95%] mx-auto">
+      <div className="border px-4 py-2 flex rounded w-full border-[#E4E5E7] font-semibold">
+        <div className="flex-[0.5]">Name</div>
+        <div className="flex-[0.3]">Specialty</div>
+        <div className="flex-[0.2]">Service fee</div>
+        </div>
+      <div className=" text-[#808080]">
+
+        <Link href={'/patients/practitioner/professional'}><div className="border border-[#E4E5E7] text-black px-4 py-2 flex w-full"> 
+        <div className="flex-[0.5]">Dr. Emily Johnson</div>
+        <div className="flex-[0.3]">Cardiologist</div>
+        <div className="flex-[0.2]">Free</div>
+        </div></Link>
+        <Link href={'/patients/practitioner/professional'}><div className="border bg-[#EBF1F8] border-[#E4E5E7] px-4 py-2 flex w-full text-black">
+        <div className="flex-[0.5]">Dr. Tunde Adams</div>
+        <div className="flex-[0.3]">Pharmacist</div>
+        <div className="flex-[0.2]">Paid</div>
+        </div></Link>
+
+      </div>
+    </div>
       </div>
 
 

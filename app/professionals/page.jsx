@@ -9,9 +9,9 @@ const page = () => {
     <div className="w-[95%] mx-auto">
       <div className="border px-4 py-2 rounded border-[#E4E5E7] font-semibold ">Patient's DID</div>
       <div className=" text-[#808080]">
-        no patients available
-        {/* <Link href={''}><div className="border border-[#E4E5E7] px-4 py-2"> lorem20</div></Link>
-        <Link href={''}><div className="border bg-[#EBF1F8] border-[#E4E5E7] px-4 py-2"> lorem20</div></Link> */}
+
+        <Link href={'/professionals/profile'}><div className="border border-[#E4E5E7] px-4 py-2"> lorem20</div></Link>
+        <Link href={''}><div className="border bg-[#EBF1F8] border-[#E4E5E7] px-4 py-2"> lorem20</div></Link>
 
       </div>
     </div>

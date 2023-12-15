@@ -1,11 +1,27 @@
 import React from 'react'
-
+import Link from 'next/link'
 const page = () => {
   return (
     <div className="flex flex-col lg:flex-row  lg:-mt-0 w-full gap-8 ">
     <div className="lg:flex-[0.65] bg-white  h-full lg:min-h-[80vh]">
     {<div className=" p-4 flex flex-col lg:gap-4 gap-6 min-h-[60vh] lg:min-h-[auto] ">
-      <div className="w-full flex justify-between"><span className='text-2xl'>Patient's Medical Record</span><span><button className='bg-[#3263CF] px-4 py-1'>Edit Medical Record</button></span></div>
+      <div className="w-full flex justify-between"><span className='text-2xl'>Patient's Medical Record</span><span><Link href={'./edit'}><button className='bg-[#3263CF] px-4 py-1 text-white'>Edit Medical Record</button></Link></span></div>
+      <div className="bg-[#EBF1F8]  px-4 py-4 w-[35%]">
+          <div className="text-[#808080]">DID</div>
+          <div className="text-lg truncate flex gap-1 items-center"><span>8WG2983e29....</span>  <span>
+          <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_101_1634)">
+<path d="M4.71899 4.14386V2.60417C4.71899 2.08641 5.13871 1.66667 5.65649 1.66667H13.7815C14.2993 1.66667 14.719 2.08641 14.719 2.60417V10.7292C14.719 11.247 14.2993 11.6667 13.7815 11.6667H12.2244" stroke="#3263CF" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M11.1147 4.33334H2.98975C2.47198 4.33334 2.05225 4.75308 2.05225 5.27084V13.3958C2.05225 13.9136 2.47198 14.3333 2.98975 14.3333H11.1147C11.6325 14.3333 12.0522 13.9136 12.0522 13.3958V5.27084C12.0522 4.75308 11.6325 4.33334 11.1147 4.33334Z" stroke="#3263CF" stroke-width="1.33333" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_101_1634">
+<rect width="16" height="16" fill="white" transform="translate(0.38562)"/>
+</clipPath>
+</defs>
+</svg>
+</span></div>
+        </div>
       <div className="flex flex-wrap gap-2">
         <button className="text-white border border-[#97A3B0] rounded-full py-1 px-4 bg-[#3263CF]">General</button>
         <button className="text-[#97A3B0] border border-[#97A3B0] rounded-full py-1 px-4">prescription</button>
@@ -48,7 +64,10 @@ const page = () => {
 
       </div>
       </div>
+      <div className="flex justify-end"><button className='px-8 text-white py-2 bg-[#3263CF]'>Message</button></div>
     </div>}
+   
+
     </div>
     <div className="lg:flex-[0.35] flex flex-col">
     <div className="bg-white mb-8 h-full  ">
@@ -63,22 +82,7 @@ const page = () => {
         <div className="flex justify-center items-center w-full">
         {/*  */}
         {<div className="flex w-full flex-col gap-4">
-        <div className="bg-[#EBF1F8] w-full px-4 py-4">
-          <div className="text-[#808080]">DID</div>
-          <div className="text-lg truncate flex gap-1 items-center"><span>8WG2983e29....</span>  <span>
-          <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_101_1634)">
-<path d="M4.71899 4.14386V2.60417C4.71899 2.08641 5.13871 1.66667 5.65649 1.66667H13.7815C14.2993 1.66667 14.719 2.08641 14.719 2.60417V10.7292C14.719 11.247 14.2993 11.6667 13.7815 11.6667H12.2244" stroke="#3263CF" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M11.1147 4.33334H2.98975C2.47198 4.33334 2.05225 4.75308 2.05225 5.27084V13.3958C2.05225 13.9136 2.47198 14.3333 2.98975 14.3333H11.1147C11.6325 14.3333 12.0522 13.9136 12.0522 13.3958V5.27084C12.0522 4.75308 11.6325 4.33334 11.1147 4.33334Z" stroke="#3263CF" stroke-width="1.33333" stroke-linejoin="round"/>
-</g>
-<defs>
-<clipPath id="clip0_101_1634">
-<rect width="16" height="16" fill="white" transform="translate(0.38562)"/>
-</clipPath>
-</defs>
-</svg>
-</span></div>
-        </div>
+
         <div className="flex w-full justify-between  px-4">
           <div className="flex flex-1 flex-col">
             <div className="">

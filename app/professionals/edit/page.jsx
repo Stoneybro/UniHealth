@@ -1,0 +1,177 @@
+'use client'
+
+const page = () => {
+
+
+
+return(
+  <div className="flex flex-col lg:flex-row  lg:-mt-0 w-full gap-8 ">
+    <div className="lg:flex-[0.65] bg-white  h-full lg:min-h-[80vh]">
+    {<div className=" p-4 flex flex-col lg:gap-4 gap-6 min-h-[60vh] lg:min-h-[auto] ">
+      <div className="text-2xl">Medical Record</div>
+      <div className="flex flex-wrap gap-2">
+        <button className="text-white border border-[#97A3B0] rounded-full py-1 px-4 bg-[#3263CF]">General</button>
+        <button className="text-[#97A3B0] border border-[#97A3B0] rounded-full py-1 px-4">prescription</button>
+        <button className="text-[#97A3B0] border border-[#97A3B0] rounded-full py-1 px-4">Vaccination</button>
+        <button className="text-[#97A3B0] border border-[#97A3B0] rounded-full py-1 px-4">Sugery</button>
+      </div>
+
+      <div className=" flex flex-col gap-4">
+        <div className="text-xl font-medium">Diagnosis</div>
+        <div className="flex flex-col lg:flex-row lg:flex-wrap  gap-4 lg:gap-[auto] lg:items-center">
+       {<div className="flex flex-wrap gap-4">
+        
+        
+<div className="bg-[#FCFDFF] border rounded-md min-h-[5rem] flex flex-col justify-start w-[95%] lg:w-[45%] border-[#97A3B030] px-3 py-2">
+            <div className="flex justify-between">
+              <div className="w-5 h-3 rounded-full bg-orange-400"></div>
+              <div className=" text-sm">khyvfiy</div>
+            </div>
+            <div className="font-semibold">kviuviyu</div>
+          </div>
+          
+        
+       
+        </div>}
+  
+      </div>
+            <div className="flex"><button className='px-8 text-white py-2 bg-[#3263CF]'>Add Diagnosis</button></div>
+      </div>
+
+      <div className="flex flex-col gap-4">
+        <div className="text-xl font-medium">Medication</div>
+        <div className="flex :flex-row flex-wrap  lg:items-center gap-4 lg:gap-[auto] ">
+       {<div className="flex flex-wrap gap-4">
+
+<div className="flex flex-col  gap-4 bg-[#FCFDFF] border rounded-md w-[45%] lg:w-[23%]  border-[#97A3B030] px-3 py-2">
+            <div className="font-semibold text-lg">jhcvljyc</div>
+            <div className="text-[#97A3B0]">lkbnioibipo</div>
+          </div>
+
+        </div>}
+
+
+
+      </div>
+      </div>
+      <div className="flex"><button className='px-8 text-white py-2 bg-[#3263CF]'>Add Medication</button></div>
+    </div>}
+
+         </div>
+    <div className="lg:flex-[0.35] flex flex-col">
+    <div className="bg-white mb-8 h-full  ">
+    <div className="">
+    <div className="  py-4">
+      <div className="flex flex-col gap-4">
+
+
+        <div className=" text-2xl px-4">
+        Personal Information
+        </div>
+        <div className="flex justify-center items-center w-full">
+        {/*  */}
+        {<div className="flex w-full flex-col gap-4">
+
+        <div className="flex w-full justify-between  px-4">
+          <div className="flex flex-1 flex-col">
+            <div className="">
+              <div className="text-[#808080]">Date of birth</div>
+              <div className="font-semibold">kjkbl</div>
+            </div>
+            <div className="">
+              <div className="text-[#808080]">Gender</div>
+              <div className="font-semibold">male</div>
+            </div>
+            <div className="">
+              <div className="text-[#808080]">Height</div>
+              <div className="font-semibold">kljsjnlkwe</div>
+            </div>
+            <div className="">
+              <div className="text-[#808080]">Weight</div>
+              <div className="font-semibold">lninweoo</div>
+            </div>
+          </div>
+
+
+          <div className="flex flex-1 flex-col">
+            <div className="">
+              <div className="text-[#808080]">Phone number</div>
+              <div className="font-semibold">asefvkw;er</div>
+            </div>
+            <div className="">
+              <div className="text-[#808080]">Email</div>
+              <div className="font-semibold">aeflknwepoi</div>
+            </div>
+            <div className="">
+              <div className="text-[#808080]">Address</div>
+              <div className="font-semibold">sdj vlkflksr</div>
+            </div>
+          </div>
+
+
+        </div>
+
+
+
+
+        </div>}
+        </div>
+      </div>
+    </div></div>
+    </div>
+
+
+    <div className="bg-white mb-8 h-full ">
+    <div className="">
+    <div className="  py-4">
+      <div className="flex flex-col gap-4">
+
+
+        <div className=" text-2xl px-4 ">
+        Emergency Information
+        </div>
+        <div className="flex justify-center items-center w-full">
+
+        {<div className="flex w-full flex-col gap-4">
+        <div className="flex w-full justify-between  px-4">
+          <div className="flex flex-1 flex-col">
+            <div className="">
+              <div className="text-[#808080]">Emergency contact</div>
+              <div className="font-semibold">khibvikbvu</div>
+            </div>
+            <div className="">
+              <div className="text-[#808080]">phone</div>
+              <div className="font-semibold">fdghjhklk</div>
+            </div>
+            <div className="">
+              <div className="text-[#808080]">address</div>
+              <div className="font-semibold">yulfyflyfl</div>
+            </div>
+            <div className="">
+              <div className="text-[#808080]">relationship</div>
+              <div className="font-semibold">jkvhjhv.hv</div>
+            </div>
+          </div>
+
+
+
+
+
+        </div>
+
+
+
+
+        </div>}
+        </div>
+      </div>
+    </div></div>
+    </div>
+    </div>
+  </div>
+)
+
+}
+
+export default page
+
